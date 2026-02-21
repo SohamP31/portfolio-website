@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soham Pokharkar | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+
+:root{
+    --primary:#000000;
+    --secondary:#111111;
+    --accent:#FFC107;
+    --light:#ffffff;
+    --gray:#bbbbbb;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--primary);
+    color:var(--light);
+}
+
+/* Navbar */
+
+nav{
+    position:fixed;
+    width:100%;
+    padding:20px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    transition:0.3s;
+}
+
+nav.scrolled{
+    background:rgba(0,0,0,0.95);
+    box-shadow:0 5px 20px rgba(255,193,7,0.2);
+}
+
+nav h2{
+    color:var(--accent);
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:var(--light);
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:var(--accent);
+}
+
+/* Hero */
+
+.hero{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 10%;
+}
+
+.hero-text h1{
+    font-size:50px;
+}
+
+.hero-text span{
+    color:var(--accent);
+}
+
+.hero-text p{
+    margin:20px 0;
+    color:var(--gray);
+}
+
+.btn{
+    padding:12px 28px;
+    background:var(--accent);
+    color:black;
+    text-decoration:none;
+    font-weight:600;
+    border-radius:5px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:white;
+}
+
+/* Circle Frame */
+
+.circle-frame{
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    padding: 10px;
+    background: linear-gradient(45deg,var(--accent),black);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 0 40px rgba(255,193,7,0.5);
+    animation:float 4s ease-in-out infinite;
+}
+
+.circle-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+}
+
+/* Floating animation */
+
+@keyframes float{
+    0%,100%{transform:translateY(0px);}
+    50%{transform:translateY(-15px);}
+}
+
+/* Sections */
+
+section{
+    padding:100px 10%;
+}
+
+.section-title{
+    font-size:32px;
+    margin-bottom:40px;
+    color:var(--accent);
+}
+
+/* Skills */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.skill{
+    background:var(--secondary);
+    padding:20px;
+    border-radius:8px;
+    text-align:center;
+    transition:0.3s;
+    border:1px solid transparent;
+}
+
+.skill:hover{
+    transform:translateY(-8px);
+    border:1px solid var(--accent);
+    box-shadow:0 0 20px rgba(255,193,7,0.3);
+}
+
+/* Projects */
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.project{
+    background:var(--secondary);
+    padding:25px;
+    border-radius:8px;
+    transition:0.4s;
+    opacity:0;
+    transform:translateY(40px);
+}
+
+.project.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.project:hover{
+    box-shadow:0 0 25px rgba(255,193,7,0.4);
+}
+
+.project h3{
+    color:var(--accent);
+}
+
+.project a{
+    color:var(--accent);
+    text-decoration:none;
+}
+
+/* Contact */
+
+/* Contact Form Styling */
+
+form{
+    max-width:500px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+form input,
+form textarea{
+    width:100%;
+    padding:12px;
+    background:#111;
+    border:1px solid #333;
+    color:white;
+    border-radius:5px;
+    outline:none;
+    transition:0.3s;
+}
+
+form input:focus,
+form textarea:focus{
+    border-color:var(--accent);
+    box-shadow:0 0 10px rgba(255,193,7,0.4);
+}
+
+form button{
+    cursor:pointer;
+}
+/* Social Icons Styling */
+
+.contact a {
+    color: var(--accent);
+    font-size: 32px;          /* Increased size */
+    margin-right: 35px;       /* More space between icons */
+    transition: 0.3s;
+}
+
+.contact a:hover {
+    color: white;
+    transform: scale(1.2);
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        margin-top:80px;
+    }
+    nav ul{
+        display:none;
+    }
+}
+footer{
+    background: var(--secondary);
+    color: var(--gray);
+    display: flex;
+    align-items: center;        /* Vertical center */
+    justify-content: center;    /* Horizontal center */
+    height: 80px;               /* Fixed height for better alignment */
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav id="navbar">
+    <h2>Soham Pokharkar</h2>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <div class="hero-text">
+        <h1>Hello, I'm <span>Soham Pokharkar</span></h1>
+        <p id="typing"></p>
+        <a href="#contact" class="btn">Let's Connect</a>
+    </div>
+
+    <div class="circle-frame">
+        <img src="first_app/images/ChatGPT Image Feb 20, 2026, 04_56_12 PM.png">
+    </div>
+</div>
+
+<section id="about">
+    <h2 class="section-title">About Me</h2>
+
+    <p>
+        I build <strong>GenAI applications</strong>, 
+        <strong>Agentic AI systems</strong>, and 
+        <strong>high-performance AI solutions</strong> 
+        focused on <strong>scalability</strong> and 
+        <strong>clean architecture</strong>.
+    </p>
+
+    <br>
+
+    <p>
+        My work combines <strong>intelligent automation</strong>, 
+        <strong>prompt engineering</strong>, and 
+        <strong>backend architecture</strong> to create systems that are 
+        not only smart but production-ready.
+    </p>
+
+    <br>
+
+    <p>
+        I am driven by building AI that solves real-world problems, 
+        optimizes workflows, and transforms ideas into deployable solutions.
+    </p>
+
+    <br>
+
+    <p style="color: var(--accent); font-weight:600;">
+        Currently exploring: Advanced Agentic Workflows • Multi-Agent Systems • AI Infrastructure
+    </p>
+
+</section>
+
+
+<section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
+        <div class="skill">GenAI</div>
+        <div class="skill">Agentic AI</div>
+        <div class="skill">Java</div>
+        <div class="skill">C++</div>
+        <div class="skill">Python</div>
+        <div class="skill">Android</div>
+        <div class="skill">Spring Boot</div>
+        <div class="skill">MySQL</div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+        <div class="project">Project 1 – AI Application</div>
+        <div class="project">Project 2 – Agentic AI System</div>
+        <div class="project">Project 3 – AI Architecture</div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <h2 class="section-title">Contact Me</h2>
+
+    <form name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact">
+
+        <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required>
+        </div>
+
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required>
+        </div>
+
+        <div class="form-group">
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Send Message</button>
+    </form>
+
+    <br><br>
+
+    <p>
+        <a href="mailto:sohampokharkar31012004@gmail.com?subject=Portfolio%20Inquiry"
+           style="color: var(--accent); text-decoration: none;">
+           Email: sohampokharkar31012004@gmail.com
+        </a>
+    </p>
+
+    <br>
+
+    <a href="https://linkedin.com/in/soham-pokharkar-6b8368255" target="_blank"><i class="fab fa-linkedin"></i></a> 
+    
+    <a href="https://github.com/SohamP31" target="_blank"><i class="fab fa-github"></i></a>
+</section>
+
+
+<footer >
+    © 2026 Soham Pokharkar. All Rights Reserved.
+</footer>
+
+<script>
+
+// Navbar scroll effect
+window.addEventListener("scroll", function(){
+    document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 50);
+});
+
+// Typing effect
+const text = "GenAI Developer | Agentic AI Builder | AI Engineer";
+let i = 0;
+function typing(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, 50);
+    }
+}
+typing();
+
+// Reveal project animation
+const projects = document.querySelectorAll(".project");
+window.addEventListener("scroll", ()=>{
+    projects.forEach(project=>{
+        const position = project.getBoundingClientRect().top;
+        const screen = window.innerHeight;
+        if(position < screen - 100){
+            project.classList.add("show");
+        }
+    });
+});
+
+</script>
+
+</body>
+</html>
